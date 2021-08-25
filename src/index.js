@@ -135,3 +135,146 @@ const rootEl = document.getElementById("root");
 // }
 
 // ReactDOM.render(<Garage/>, rootEl   )
+
+// Create an object named "carinfo" and send it to the car component
+
+// class Car extends React.Component{
+//   render() {
+//     return <h2>I am a {this.props.brand.year} {this.props.brand.model}</h2>
+//   }
+// }
+
+// class Garage extends React.Component{
+//   render() {
+//     const carInfo = {name: "Toyota", model: "Camry", year: 2021};
+//     return (
+//       <div>
+//         <h1>Who is in my garage?</h1>
+//         <Car brand={carInfo}/>
+//       </div>
+//     )
+//   }
+// }
+
+// ReactDOM.render(<Garage/>, rootEl)
+
+// Props in Constructor
+
+// class Car extends React.Component {
+//   constructor(props) {
+//     super(props);
+//   }
+//   render() {
+//     return <h2>I am a{this.props.model}</h2>
+//   }
+// }
+
+// ReactDOM.render(<Car model="Camry Toyota"/>, rootEl)
+
+
+// React State
+
+// creating State object
+// class Car extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = {brand: 'Toyota', model: 'Camry', color: 'red', year: '2021'};
+//   }
+
+//   render() {
+//     return (
+//       <div>
+//         <h1>My {this.state.brand}</h1>
+//         <p>
+//           It is a {this.state.color} {this.state.model} from {this.state.year}
+//         </p>
+//       </div>
+//     )
+//   }
+// }
+
+// ReactDOM.render(<Car/>, rootEl)
+
+// Changing the State object
+
+// class Car extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = {brand: "Toyota", model: "Corolla", color: "red", year: "2021"}
+//   }
+//   changeColor = () => {
+//     this.setState({color: "green"});
+//   }
+//   render() {
+//     return (
+//       <div>
+//         <h1>My {this.state.brand}</h1>
+//         <p>It is a {this.state.color} {this.state.model} from {this.state.year}</p>
+
+//         <button type='button' onclick={this.changeColor}>Change Color</button>
+//       </div>
+//     )
+//   }
+// }
+
+// ReactDOM.render(<Car/>, rootEl)
+
+// React lifecycle
+
+// constructor
+
+// class Header extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = {favoriteColor: "red"}
+//   }
+//   render() {
+//     return (
+//       <h1>My favorite color is {this.state.favoriteColor}</h1>
+//     )
+//   }
+// }
+
+
+// ReactDOM.render(<Header/>, rootEl)
+
+// getDerivedStateFromProps
+
+// class Header extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = {favoriteColor: "red"}
+//   }
+
+//   static getDerivedStateFromProps(props, state) {
+//     return {favoriteColor: props.favCol}
+//   }
+//   render() {
+//     return (
+//       <h1>My favorite color is {this.state.favoriteColor}</h1>
+//     )
+//   }
+// }
+
+// ReactDOM.render(<Header favCol="yellow"/>, rootEl)
+
+// componentDidMount
+
+class Header extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {favoriteColor: "red"}
+  }
+
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({favoriteColor: "yellow"})
+    }, 1000)
+  }
+  render() {
+    return (
+      <h1>My favorite color is {this.state.favoriteColor}</h1>
+    )
+  }
+}
+ReactDOM.render(<Header/>, rootEl )
