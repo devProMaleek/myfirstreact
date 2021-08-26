@@ -592,3 +592,253 @@ const rootEl = document.getElementById("root");
 // }
 //
 // ReactDOM.render(<Football/>, rootEl)
+
+// React Forms
+
+// class MyForm extends React.Component{
+//   render() {
+//     return (
+//         <form>
+//           <h1>Hello</h1>
+//           <label>Enter your name:</label><br/>
+//           <input type="text" placeholder="Abdulmalik" required/><br/><br/>
+//           <input type="submit" value="Submit"/>
+//         </form>
+//     )
+//   }
+// }
+//
+// ReactDOM.render(<MyForm/>, rootEl)
+
+// Handling Forms in React
+
+// class MyForm extends React.Component{
+//     constructor(props){
+//         super(props);
+//         this.state = {username: ''}
+//     }
+//
+//     myChangeHandler = (event) => {
+//         this.setState({username: document.getElementById("name").value})
+// }
+//
+//     render() {
+//         return (
+//             <form>
+//                 <h1>Hello {this.state.username}</h1>
+//                 <label>Enter your name:</label><br/>
+//                 <input type="text" id="name"/><br/><br/>
+//
+//                 <input type="submit" onClick={this.myChangeHandler} value="Submit"/>
+//             </form>
+//         )
+//     }
+// }
+//
+// ReactDOM.render(<MyForm/>, rootEl)
+
+// Conditional Rendering
+
+// class MyForm extends React.Component {
+//     constructor(props){
+//         super(props);
+//         this.state = {username: ""}
+//     }
+//
+//     myChangeHandler = (ev) => {
+//         this.setState({username: ev.target.value})
+//     }
+//
+//     render(){
+//         let header = "";
+//         if (this.state.username) {
+//             header = <h1>Hello, {this.state.username}</h1>
+//         } else {
+//             header = ""
+//         }
+//
+//         return (
+//             <form>
+//                 {header}
+//                 <label>Enter your name: </label>
+//                 <input type="text" onChange={this.myChangeHandler}/>
+//             </form>
+//         )
+//     }
+// }
+//
+// ReactDOM.render(<MyForm/>, rootEl)
+
+// Submitting Forms
+
+// class MyForm extends React.Component {
+//     constructor(props){
+//         super(props);
+//         this.state = {username: ""}
+//     }
+//     mySubmitHandler = (ev) => {
+//         ev.preventDefault();
+//         alert("You are submitting " + this.state.username)
+//     }
+//     myChangeHandler = (ev) => {
+//         this.setState({username: ev.target.value})
+//     }
+//
+//     render(){
+//         return (
+//             <form onSubmit={this.mySubmitHandler}>
+//                 <h1>Hello {this.state.username}</h1>
+//                 <label>Enter your name:</label><br/>
+//                 <input type="text" onChange={this.myChangeHandler}/><br/><br/>
+//                 <input type="submit"/>
+//             </form>
+//         )}
+// }
+//
+// ReactDOM.render(<MyForm/>, rootEl)
+
+// Multiple Input Fields
+
+// class MyForm extends React.Component {
+//     constructor(props){
+//         super(props);
+//         this.state = {username: "", age: null}
+//     }
+//
+//     myChangeHandler = (ev) => {
+//         let nam = ev.target.name;
+//         let val = ev.target.value;
+//         this.setState({[nam]: val})
+//     }
+//
+//     render(){
+//         return (
+//             <form>
+//                 <h1>Hello, my name is {this.state.username} and I'm {this.state.age} years.</h1>
+//                 <p>Enter your name:</p>
+//                 <input type='text' name='username' onChange={this.myChangeHandler}/>
+//
+//                 <p>Enter your age:</p>
+//                 <input type="text" name="age" onChange={this.myChangeHandler}/>
+//             </form>
+//         )}
+// }
+//
+// ReactDOM.render(<MyForm/>, rootEl)
+
+// Validating Form Input
+
+// class MyForm extends React.Component {
+//     constructor(props){
+//         super(props);
+//         this.state = {username: "", age: null}
+//     }
+//
+//     myChangeHandler = (ev) => {
+//         let nam = ev.target.name;
+//         let val = ev.target.value;
+//         if (nam === "age") {
+//             if (!Number(val)) {
+//                 alert("Your age must be a number")
+//             }
+//         }
+//         this.setState({[nam]: val})
+//     }
+//
+//     render() {
+//         return (
+//             <form>
+//                 <h1>Hello, my name is {this.state.username} and I'm {this.state.age} years</h1>
+//
+//                 <p>Enter your name:</p>
+//                 <input type="text" name="username" onChange={this.myChangeHandler}/>
+//
+//                 <p>Enter your age:</p>
+//                 <input type="text" name="age" onChange={this.myChangeHandler}/>
+//             </form>
+//         )
+//     }
+// }
+//
+// ReactDOM.render(<MyForm/>, rootEl)
+
+// Submit Form Validation
+//
+// class MyForm extends React.Component {
+//     constructor(props) {
+//         super(props);
+//         this.state = {username: "", age: null}
+//     }
+//
+//     mySubmitHandler = (ev) => {
+//         ev.preventDefault();
+//         let age = this.state.age;
+//         if (!Number(age)) {
+//             alert("Your age must be a number")
+//         }
+//     }
+//
+//     myChangeHandler = (ev) => {
+//         let nam = ev.target.name;
+//         let val = ev.target.value;
+//         this.setState({[nam]: val})
+//     }
+//
+//     render () {
+//         return (
+//             <form onSubmit={this.mySubmitHandler}>
+//                 <h1>Hello, my name is {this.state.username} and I'm {this.state.age} years </h1>
+//                 <p>Enter your name:</p>
+//                 <input type="text" name="username" onChange={this.myChangeHandler}/>
+//
+//                 <p>Enter your age:</p>
+//                 <input type="text" name="age" onChange={this.myChangeHandler}/><br/> <br/>
+//
+//                 <input type="submit"/>
+//             </form>
+//         )
+//     }
+// }
+//
+// ReactDOM.render(<MyForm/>, rootEl)
+
+// Adding Error Message
+
+class MyForm extends React.Component {
+    constructor(props){
+        super(props);
+        this.state = {username: "", age: "", errorMessage: ""}
+    }
+
+    myChangeHandler = (ev) => {
+        let nam = ev.target.name;
+        let val = ev.target.value;
+        let err = "";
+        if (nam ==="age") {
+            if (val != "" && !Number(val)) {
+                err = <strong>Your age must be a number</strong>
+            }
+        }
+        this.setState({errorMessage: err})
+        this.setState({[nam]: val})
+    }
+
+    render() {
+        return (
+            <form>
+                <h1>Hello, my name is {this.state.username} and I'm {this.state.age} years</h1>
+
+              <p>Enter your name:</p>
+              <input type="text" name="username" onChange={this.myChangeHandler}/>
+
+                <p>Enter your age:</p>
+                <input type="text" name="age" onChange={this.myChangeHandler}/><br/>
+
+                {this.state.errorMessage}
+            </form>
+        )
+    }
+
+}
+
+ReactDOM.render(<MyForm/>, rootEl)
