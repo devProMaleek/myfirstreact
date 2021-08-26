@@ -463,43 +463,132 @@ const rootEl = document.getElementById("root");
 
 // componentWillUnmount Method 
 
-class Container extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {show: true}
-  }
+// class Container extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = {show: true}
+//   }
 
-  delHeader = () => {
-    this.setState({show: false})
-  }
+//   delHeader = () => {
+//     this.setState({show: false})
+//   }
 
-  render() {
-    let myHeader;
-    if (this.state.show) {
-      myHeader = <Child/>
-    }
+//   render() {
+//     let myHeader;
+//     if (this.state.show) {
+//       myHeader = <Child/>
+//     }
 
-    return (
-      <div>
-        {myHeader}
-        <button type="button" onClick={this.delHeader}>Delete Header</button>
-      </div>
-    )
-  }
-}
+//     return (
+//       <div>
+//         {myHeader}
+//         <button type="button" onClick={this.delHeader}>Delete Header</button>
+//       </div>
+//     )
+//   }
+// }
 
 // Create Child Component
 
-class Child extends React.Component {
-  componentWillMount() {
-    alert("The component named Header is about to be unmounted")
-  }
+// class Child extends React.Component {
+//   componentWillMount() {
+//     alert("The component named Header is about to be unmounted")
+//   }
 
-  render() {
-    return (
-      <h1>Hello World!</h1>
-    )
-  }
-}
+//   render() {
+//     return (
+//       <h1>Hello World!</h1>
+//     )
+//   }
+// }
 
-ReactDOM.render(<Container/>, rootEl)
+// ReactDOM.render(<Container/>, rootEl)
+
+// React Event Handlers
+
+// class Football extends React.Component {
+//   shoot = () => {
+//     alert(this)
+//   }
+
+//   render() {
+//     return (
+//       <button onClick={this.shoot}>Take the shot!</button>
+//     )
+//   }
+// }
+
+
+// ReactDOM.render(<Football/>, rootEl)
+
+// If you must use regular functions instead of arrow functions you have to bind this to the component instance using the bind() method:
+
+// class Football extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     this.shoot = this.shoot.bind(this);
+//   }
+//
+//   shoot = function () {
+//     alert(this)
+//   }
+//
+//   render() {
+//     return (
+//       <button onClick={this.shoot}>Take the shot!</button>
+//     )
+//   }
+// }
+//
+// ReactDOM.render(<Football/>, rootEl)
+
+// Passing Arguments
+
+// Two options
+// Option one
+
+// class Football extends React.Component {
+//   shoot = (a) => {
+//     alert(a)
+//   }
+//   render() {
+//     return (
+//         <button onClick={() => this.shoot("Goal")}>Take the shot!</button>
+//     )
+//   }
+// }
+//
+// ReactDOM.render(<Football/>, rootEl)
+
+// Option two: Bind the event handler to this
+
+// class Foot extends React.Component {
+//   shoot(a) {
+//     alert(a);
+//   }
+//
+//   render() {
+//     return (
+//         <button onClick={this.shoot.bind(this, "Goal")}>Take the shot!</button>
+//     )
+//   }
+// }
+//
+// ReactDOM.render(<Foot/>, rootEl)
+
+
+// React Event Object
+
+// class Football extends React.Component {
+//   shoot = (a, b) => {
+//     alert(b.type)
+//   }
+//
+//   render() {
+//     return (
+//         <button onClick={this.shoot.bind(this, "Goal")}>Take the shot!</button>
+//     )
+//   }
+// }
+//
+// ReactDOM.render(<Football/>, rootEl)
