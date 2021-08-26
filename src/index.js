@@ -260,21 +260,110 @@ const rootEl = document.getElementById("root");
 
 // componentDidMount
 
+// class Header extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = {favoriteColor: "red"}
+//   }
+
+//   componentDidMount() {
+//     setTimeout(() => {
+//       this.setState({favoriteColor: "yellow"})
+//     }, 1000)
+//   }
+//   render() {
+//     return (
+//       <h1>My favorite color is {this.state.favoriteColor}</h1>
+//     )
+//   }
+// }
+// ReactDOM.render(<Header/>, rootEl )
+
+
+// Updating
+
+// getDerivedStateFromProps
+
+// class Header extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = {favoriteColor: "red"}
+//   }
+
+//   static getDerivedStateFromProps(props, state) {
+//     return {favoriteColor: props.favCol}
+//   }
+
+//   changeColor = () => {
+//     this.state({favoriteColor: "blue"})
+//   }
+
+//   render() {
+//     return (
+//       <div>
+//         <h1>My Favorite Color is {this.state.favoriteColor}</h1>
+//         <button type="button" onClick={this.changeColor}>Change the color text</button>
+//       </div>
+//     )
+//   }
+// }
+
+// ReactDOM.render(<Header favCol="yellow"/>, rootEl)
+
+// shouldComponentUpdate
+
+// Returns false
+
+// class Header extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = {favoriteColor: "red"}
+//   }
+
+//   shouldComponentUpdate() {
+//     return false;
+//   }
+
+//   changeColor = () => {
+//     this.setState({favoriteColor: "blue"})
+//   }
+
+//   render() {
+//     return (
+//       <div>
+//         <h1>My Favorite Color is {this.state.favoriteColor}</h1>
+//         <button type="button" onClick={this.changeColor}>Change color</button>
+//       </div>
+//     )
+//   }
+// }
+
+// ReactDOM.render(<Header/>, rootEl)
+
+// shouldComponentUpdate methods return true
+
 class Header extends React.Component {
   constructor(props) {
     super(props);
     this.state = {favoriteColor: "red"}
   }
 
-  componentDidMount() {
-    setTimeout(() => {
-      this.setState({favoriteColor: "yellow"})
-    }, 1000)
+  shouldComponentUpdate() {
+    return true;
   }
+
+  changeColor = () => {
+    this.setState({favoriteColor: "blue"})
+  }
+
   render() {
     return (
-      <h1>My favorite color is {this.state.favoriteColor}</h1>
+      <div>
+        <h1>My favorite color is {this.state.favoriteColor}</h1>
+        <button type="button" onClick = {this.changeColor}>Change color</button>
+      </div>
     )
   }
 }
-ReactDOM.render(<Header/>, rootEl )
+
+ReactDOM.render(<Header/>, rootEl)
