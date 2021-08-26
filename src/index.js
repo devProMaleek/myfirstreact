@@ -342,28 +342,164 @@ const rootEl = document.getElementById("root");
 
 // shouldComponentUpdate methods return true
 
-class Header extends React.Component {
+// class Header extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = {favoriteColor: "red"}
+//   }
+
+//   shouldComponentUpdate() {
+//     return true;
+//   }
+
+//   changeColor = () => {
+//     this.setState({favoriteColor: "blue"})
+//   }
+
+//   render() {
+//     return (
+//       <div>
+//         <h1>My favorite color is {this.state.favoriteColor}</h1>
+//         <button type="button" onClick = {this.changeColor}>Change color</button>
+//       </div>
+//     )
+//   }
+// }
+
+// ReactDOM.render(<Header/>, rootEl)
+
+// Render
+
+// class Header extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = {favoriteColor: "red"}
+//   }
+
+//   changeColor = () => {
+//     this.setState({favoriteColor: "green"})
+//   }
+
+//   render() {
+//     return (
+//       <div>
+//         <h1>My favorite color is {this.state.favoriteColor}</h1>
+
+//         <button type="button" onClick={this.changeColor}>Change color</button>
+//       </div>
+//     )
+//   }
+// }
+
+// ReactDOM.render(<Header/>, rootEl)
+
+
+// getSnapshotBeforeUpdate Method
+
+// class Header extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = {favoriteColor: "red"}
+//   } 
+
+//   componentDidMount() {
+//     setTimeout(() => {
+//       this.setState({favoriteColor: "yellow"})
+//     }, 1000)
+//   }
+
+//   getSnapshotBeforeUpdate(prevProps, prevState) {
+//     document.getElementById('div1').innerHTML = "Before the update, the favorite color was " + prevState.favoriteColor
+//   }
+
+//   componentDidUpdate() {
+//     document.getElementById('div2').innerHTML = "The updated favorite color is " + this.state.favoriteColor;
+//   }
+
+//   render() {
+//     return (
+//       <div>
+//         <h1>My Favorite Color is {this.state.favoriteColor}</h1>
+//         <div id="div1"></div>
+//         <div id="div2"></div>
+//       </div>
+//     )
+//   }
+// }
+
+// ReactDOM.render(<Header/>, rootEl)
+
+// componentDidUpdate Method
+
+// class Header extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = {favoriteColor: "red"}
+//   }
+
+//   componentDidMount() {
+//     setTimeout(() => {
+//       this.setState({favoriteColor: "green"})
+//     }, 2000)
+//   }
+
+//   componentDidUpdate() {
+//     document.getElementById("div1").innerHTML = "The updated favorite is " + this.state.favoriteColor
+//   }
+
+//   render() {
+//     return (
+//       <div>
+//         <h1>My favorite color is {this.state.favoriteColor}</h1>
+
+//         <div id="div1"></div>
+//       </div>
+
+//     )
+//   }
+// }
+
+// ReactDOM.render(<Header/>, rootEl)
+
+// componentWillUnmount Method 
+
+class Container extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {favoriteColor: "red"}
+    this.state = {show: true}
   }
 
-  shouldComponentUpdate() {
-    return true;
-  }
-
-  changeColor = () => {
-    this.setState({favoriteColor: "blue"})
+  delHeader = () => {
+    this.setState({show: false})
   }
 
   render() {
+    let myHeader;
+    if (this.state.show) {
+      myHeader = <Child/>
+    }
+
     return (
       <div>
-        <h1>My favorite color is {this.state.favoriteColor}</h1>
-        <button type="button" onClick = {this.changeColor}>Change color</button>
+        {myHeader}
+        <button type="button" onClick={this.delHeader}>Delete Header</button>
       </div>
     )
   }
 }
 
-ReactDOM.render(<Header/>, rootEl)
+// Create Child Component
+
+class Child extends React.Component {
+  componentWillMount() {
+    alert("The component named Header is about to be unmounted")
+  }
+
+  render() {
+    return (
+      <h1>Hello World!</h1>
+    )
+  }
+}
+
+ReactDOM.render(<Container/>, rootEl)
