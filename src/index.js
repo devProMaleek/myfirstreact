@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 // import Car from '/src/App.js'
+import './App.css'
 const rootEl = document.getElementById("root");
 // const myFirstElement = (
 //   <section>
@@ -804,41 +805,103 @@ const rootEl = document.getElementById("root");
 
 // Adding Error Message
 
-class MyForm extends React.Component {
-    constructor(props){
-        super(props);
-        this.state = {username: "", age: "", errorMessage: ""}
-    }
+// class MyForm extends React.Component {
+//     constructor(props){
+//         super(props);
+//         this.state = {username: "", age: "", errorMessage: ""}
+//     }
+//
+//     myChangeHandler = (ev) => {
+//         let nam = ev.target.name;
+//         let val = ev.target.value;
+//         let err = "";
+//         if (nam ==="age") {
+//             if (val != "" && !Number(val)) {
+//                 err = <strong>Your age must be a number</strong>
+//             }
+//         }
+//         this.setState({errorMessage: err})
+//         this.setState({[nam]: val})
+//     }
+//
+//     render() {
+//         return (
+//             <form>
+//                 <h1>Hello, my name is {this.state.username} and I'm {this.state.age} years</h1>
+//
+//               <p>Enter your name:</p>
+//               <input type="text" name="username" onChange={this.myChangeHandler}/>
+//
+//                 <p>Enter your age:</p>
+//                 <input type="text" name="age" onChange={this.myChangeHandler}/><br/>
+//
+//                 {this.state.errorMessage}
+//             </form>
+//         )
+//     }
+//
+// }
 
-    myChangeHandler = (ev) => {
-        let nam = ev.target.name;
-        let val = ev.target.value;
-        let err = "";
-        if (nam ==="age") {
-            if (val != "" && !Number(val)) {
-                err = <strong>Your age must be a number</strong>
-            }
-        }
-        this.setState({errorMessage: err})
-        this.setState({[nam]: val})
-    }
+// ReactDOM.render(<MyForm/>, rootEl)
 
+// Styling React Using CSS
+
+// Inline Styling
+
+// class MyHeader extends React.Component {
+//     render() {
+//         return(
+//             <div style={{backgroundColor: "green", width: "50%", margin: "auto"}}>
+//                 <h1 style={{color: "red", textAlign: "center"}}>Hello, Welcome to React CSS</h1>
+//                 <p style={{textAlign: "center", color: "white"}}>Add a little style</p>
+//
+//             </div>
+//         )
+//     }
+// }
+//
+// ReactDOM.render(<MyHeader/>, rootEl)
+
+// JavaScript Object Styling
+
+// class MyHeader extends React.Component {
+//     render() {
+//         const myStyle = {
+//             color: "white",
+//             backgroundColor: "DodgerBlue",
+//             padding: "10px",
+//             fontFamily: "Raleway"
+//         }
+//
+//         const divStyle = {
+//             textAlign: "center",
+//             width: "50%",
+//             margin: "auto",
+//             backgroundColor: "DodgerBlue",
+//             padding: "10px",
+//             color: "white"
+//         }
+//
+//         return (
+//             <div style={divStyle}>
+//                 <h1 style={myStyle}>Hello, Welcome to React CSS</h1>
+//                 <p>Add a little style!</p>
+//             </div>
+//             )
+//     }
+// }
+//
+// ReactDOM.render(<MyHeader/>, rootEl)
+
+class MyHeader extends React.Component {
     render() {
         return (
-            <form>
-                <h1>Hello, my name is {this.state.username} and I'm {this.state.age} years</h1>
-
-              <p>Enter your name:</p>
-              <input type="text" name="username" onChange={this.myChangeHandler}/>
-
-                <p>Enter your age:</p>
-                <input type="text" name="age" onChange={this.myChangeHandler}/><br/>
-
-                {this.state.errorMessage}
-            </form>
+            <div>
+                <h1>Hello, Welcome to React CSS</h1>
+                <p>Add a little settle</p>
+            </div>
         )
     }
-
 }
 
-ReactDOM.render(<MyForm/>, rootEl)
+ReactDOM.render(<MyHeader/>, rootEl)
