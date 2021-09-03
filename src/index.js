@@ -1,8 +1,25 @@
 import React from "react";
+import { CirclePicker } from 'react-color';
 import ReactDOM from "react-dom";
 // import Car from '/src/App.js'
 import './App.css'
 const rootEl = document.getElementById("root");
+
+class Color extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {background: '#fff'}
+    }
+
+    handleChangeComplete = (color) => {
+        this.setState({ background: color.hex })
+    }
+    render() {
+        return <CirclePicker
+        color={/>
+    }
+}
+ReactDOM.render(<Color/>, rootEl)
 // const myFirstElement = (
 //   <section>
 //     <h1>I am a header too</h1>
@@ -892,16 +909,58 @@ const rootEl = document.getElementById("root");
 // }
 //
 // ReactDOM.render(<MyHeader/>, rootEl)
+//
+// class MyHeader extends React.Component {
+//     render() {
+//         return (
+//             <div>
+//                 <h1>Hello, Welcome to React CSS</h1>
+//                 <p>Add a little settle</p>
+//             </div>
+//         )
+//     }
+// }
+//
+// ReactDOM.render(<MyHeader/>, rootEl)
 
-class MyHeader extends React.Component {
-    render() {
-        return (
-            <div>
-                <h1>Hello, Welcome to React CSS</h1>
-                <p>Add a little settle</p>
-            </div>
-        )
-    }
-}
+// class Example extends React.Component {
+//     constructor(props) {
+//         super(props);
+//         this.state = {count: 0}
+//     }
+//
+//     componentDidMount() {
+//         document.title = `You clicked ${this.state.count} times`
+//     }
+//
+//     changeCount = () => {
+//         this.setState({count: this.state.count + 1})
+//     }
+//
+//     componentDidUpdate() {
+//         document.title = `You clicked ${this.state.count} times`
+//     }
+//
+//     render() {
+//         return (
+//             <div>
+//                 <p>You clicked {this.state.count} times</p>
+//                 <button type='submit' onClick={this.changeCount}>Click me</button>
+//             </div>
+//         )
+//     }
+// }
+//
+// ReactDOM.render(<Example />, rootEl)
 
-ReactDOM.render(<MyHeader/>, rootEl)
+// class FriendStatus extends React.Component {
+//     constructor(props) {
+//         super(props);
+//         this.state = {isOnline: null}
+//         this.handleStatusChange = this.handleStatusChange.bind(this);
+//     }
+    
+//     componentDidMount() {
+//         ChatAPI.subscribeToFriend
+//     }
+// }
