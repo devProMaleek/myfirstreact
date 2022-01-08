@@ -1,10 +1,10 @@
 import React from "react";
-import ReactDOM from "react-dom";
 
-class Car extends React.Component {
-  render() {
-    return <h2>Hi, I'm devProMaleek and I'm learning React</h2>;
-  }
-}
+// Import components
+import Football from "./components/Football";
 
-export default Car;
+const App = () => (
+    <Football isGoal={false}/>
+);
+
+export default App;

@@ -1,25 +1,32 @@
 import React from "react";
-import { CirclePicker } from 'react-color';
 import ReactDOM from "react-dom";
-// import Car from '/src/App.js'
+import App  from "./App";
 import './App.css'
 const rootEl = document.getElementById("root");
 
-class Color extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {background: '#fff'}
-    }
 
-    handleChangeComplete = (color) => {
-        this.setState({ background: color.hex })
-    }
-    render() {
-        return <CirclePicker
-        color={/>
-    }
-}
-ReactDOM.render(<Color/>, rootEl)
+
+ReactDOM.render(
+    <React.StrictMode>
+        <App/>
+    </React.StrictMode>, rootEl
+);
+
+// class Color extends React.Component {
+//     constructor(props) {
+//         super(props);
+//         this.state = {background: '#fff'}
+//     }
+//
+//     handleChangeComplete = (color) => {
+//         this.setState({ background: color.hex })
+//     }
+//     render() {
+//         return <CirclePicker
+//         color={/>
+//     }
+// }
+// ReactDOM.render(<Color/>, rootEl)
 // const myFirstElement = (
 //   <section>
 //     <h1>I am a header too</h1>
@@ -960,7 +967,11 @@ ReactDOM.render(<Color/>, rootEl)
 //         this.handleStatusChange = this.handleStatusChange.bind(this);
 //     }
     
-//     componentDidMount() {
+//     componentDidMount() 
 //         ChatAPI.subscribeToFriend
 //     }
 // }
+
+
+
+
