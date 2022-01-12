@@ -3,8 +3,10 @@ import React from "react";
 // Import components
 import Football from "./components/Football";
 
-const App = () => (
-    <Football isGoal={false}/>
-);
+const App = () => {
+    return (
+    <Football/>
+    )
+};
 
 export default App;

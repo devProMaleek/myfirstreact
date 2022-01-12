@@ -1,4 +1,4 @@
-// Importt the necessary libraries
-import React from 'react';
+// Import the necessary libraries
+// import React from 'react';
 
 // Garage Components

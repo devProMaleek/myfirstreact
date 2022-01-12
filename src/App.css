@@ -6,3 +6,16 @@ body{
     text-align: center;
 
 }
+
+ul {
+    display: flex;
+    justify-content: space-around;
+    background-color: white;
+    height: 2rem;
+    align-items: center;
+    border-radius: 10px;
+}
+
+ul a {
+    text-decoration: none;
+}
