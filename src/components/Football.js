@@ -1,11 +1,13 @@
 // Import the necessary libraries.
 import React from 'react';
-import { BrowserRouter, Routes, Route  } from 'react-router-dom';
-import Layout from './pages/Layout';
-import Blog from './pages/Blogs';
-import Contact from './pages/Contact';
-import Home from './pages/Home';
-import NoPage from './pages/Nopages';
+import { useState } from 'react';
+import Todos from './Todo';
+// import { BrowserRouter, Routes, Route  } from 'react-router-dom';
+// import Layout from './pages/Layout';
+// import Blog from './pages/Blogs';
+// import Contact from './pages/Contact';
+// import Home from './pages/Home';
+// import NoPage from './pages/Nopages';
 
 // Football component
 
@@ -77,7 +79,7 @@ const Football = ({isGoal}) => {
     //     { id: 5, brand: "Honda"}
     // ]
 
-    return (
+    // return (
     //     <>
     //       <h1>Who lives in my garage?</h1>
     //       <ul>
@@ -90,17 +92,41 @@ const Football = ({isGoal}) => {
 
     // React Routing
 
-    <BrowserRouter>
-        <Routes>
-            <Route path="/" element={<Layout/>}>
-                <Route index element={<Home/>}/>
-                <Route path="blogs" element={<Blog/>} />
-                <Route path="contact" element={<Contact/>} />
-                <Route path="*" element={<NoPage/>} />
-            </Route>
-        </Routes>
-    </BrowserRouter>
+    // <BrowserRouter>
+    //     <Routes>
+    //         <Route path="/" element={<Layout/>}>
+    //             <Route index element={<Home/>}/>
+    //             <Route path="blogs" element={<Blog/>} />
+    //             <Route path="contact" element={<Contact/>} />
+    //             <Route path="*" element={<NoPage/>} />
+    //         </Route>
+    //     </Routes>
+    // </BrowserRouter>
 
-)};
+    // React Memo.
+    const [count, setCount] = useState(0);
+    const [todos, setTodos] = useState(["Todo 1", "Todo 2"]);
+
+    const increment = () => {
+        setCount((c) => c + 1 );
+    }
+    const addTodo = () => {
+        setTodos(todos.push())
+    }
+
+    return (
+        <>
+            <Todos todos={todos} />
+            <button onClick={addTodo}>Add task</button>
+            <hr/>
+
+            <div>
+                Count: {count} 
+                <button onClick={increment}>+</button>
+            </div>            
+        </>
+    )
+}
+    
 
 export default Football;
