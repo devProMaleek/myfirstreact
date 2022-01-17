@@ -13,6 +13,6 @@ const Todos = ({todos, addTodo}) => {
             <button onClick={addTodo}>[+]</button>
         </>
     )
-}
+}           
 
 export default Todos;
